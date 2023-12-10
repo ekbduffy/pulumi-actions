@@ -102,6 +102,7 @@ inputs:
     required: false
   args:
     description: 'Additional arguments to pass into CLI during execution'
+    required: false
 outputs:
   output:
     description: Output from running command
