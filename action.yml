@@ -100,8 +100,11 @@ inputs:
   plan:
     description: 'Where to either save an Update Plan or read an Update Plan from'
     required: false
-  args:
-    description: 'Additional arguments to pass into CLI during execution'
+  log-verbosity:
+    description: 'Log verbosity of CLI during execution 1-10; Anything >3 is very verbose'
+    required: false
+  debug:
+    description: 'Print detailed debugging output during resource operations'
     required: false
 outputs:
   output:
