@@ -71,7 +71,7 @@ export function makeConfig() {
       }),
       excludeProtected: getBooleanInput('exclude-protected'),
       plan: getInput('plan'),
-      logVerbosity: getInput('logVerbosity'),
+      logVerbosity: getInput('log-verbosity'),
       debug: getInput('debug'),
     },
   };
