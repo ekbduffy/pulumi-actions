@@ -72,6 +72,7 @@ export function makeConfig() {
       excludeProtected: getBooleanInput('exclude-protected'),
       plan: getInput('plan'),
       logVerbosity: getInput('log-verbosity'),
+      logToStdErr: getInput('log-to-std-err'),
       debug: getInput('debug'),
     },
   };
