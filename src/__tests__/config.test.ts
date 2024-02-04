@@ -58,7 +58,7 @@ describe('config.ts', () => {
           "replace": Array [],
           "target": Array [],
           "targetDependents": false,
-          "userAgent": "pulumi/actions@v3",
+          "userAgent": "pulumi/actions@v5",
         },
         "pulumiVersion": "^3",
         "refresh": false,
@@ -78,7 +78,7 @@ describe('config.ts', () => {
     });
 
     await expect(() => makeConfig()).toThrowErrorMatchingInlineSnapshot(
-      `"Input was not correct for command. Valid alternatives are: up, update, refresh, destroy, preview"`,
+      `"Input was not correct for command. Valid alternatives are: up, update, refresh, destroy, preview, output"`,
     );
   });
 });

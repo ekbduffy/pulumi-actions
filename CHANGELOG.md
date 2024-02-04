@@ -6,9 +6,25 @@
 
 ---
 
-## 4.6.0 (2023-10-12)
+## 5.1.1 (2024-01-24)
 
+- fix: only warn when login fails instead of erroring
+  ([#1082](https://github.com/pulumi/actions/pull/1082))
+
+## 5.1.0 (2024-01-24)
+
+- fix: error out when login fails
+  ([#1062](https://github.com/pulumi/actions/pull/1062))
+
+- feat: Add support for output command.
+  ([#868](https://github.com/pulumi/actions/issues/868))
+
+## 5.0.0 (2024-01-02)
+
+- feat: allow installing the latest dev release automatically
+  ([#1051](https://github.com/pulumi/actions/pull/1051))
 - chore: node 20 as default runtime
+  ([#1018](https://github.com/pulumi/actions/pull/1018))
 
 ## 4.5.0 (2023-09-12)
 

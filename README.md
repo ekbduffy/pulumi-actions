@@ -19,8 +19,8 @@ jobs:
     name: Preview
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pulumi/actions@v4
+      - uses: actions/checkout@v4
+      - uses: pulumi/actions@v5
         with:
           command: preview
           stack-name: org-name/stack-name
@@ -35,8 +35,8 @@ This will check out the existing directory and run `pulumi preview`.
 The action can be configured with the following arguments:
 
 - `command` (optional) - The command to run as part of the action. Accepted
-  values are `up` (alias: update), `refresh`, `destroy`, and `preview`. If
-  unspecified, the action will stop after installing Pulumi.
+  values are `up` (alias: update), `refresh`, `destroy`, `preview` and `output`.
+  If unspecified, the action will stop after installing Pulumi.
 
 - `stack-name` (optional) - The name of the stack that Pulumi will be operating
   on. Use the fully quaified org-name/stack-name when operating on a stack
@@ -99,12 +99,13 @@ The action can be configured with the following arguments:
 - `policyPacks` - (optional) Run one or more policy packs with the provided
   `command`. Multiple values can be specified one per line (example: `<value | string>,...`).
 
-- `policyPackConfigs` - (optional) Path(s) to JSON file(s) containing the
-  config for the policy pack with the corresponding "policy-pack" argument.
-  Multiple values can be specified one per line (example: `<value | string>,...`).
+- `policyPackConfigs` - (optional) Path(s) to JSON file(s) containing the config
+  for the policy pack with the corresponding "policy-pack" argument. Multiple
+  values can be specified one per line (example: `<value | string>,...`).
 
 - `pulumi-version` - (optional) Install a specific version of the Pulumi CLI.
-  Defaults to "^3"
+  Defaults to "^3". Allows a "dev" argument to download the latest unreleased
+  version.
 
 - `remove` - (optional) Removes the target stack if all resources are destroyed.
   Used only with `destroy` command.
@@ -147,7 +148,7 @@ If you want to only install the Pulumi CLI, omit the `command` field of the
 action.
 
 ```yaml
-- uses: pulumi/actions@v4
+- uses: pulumi/actions@v5
 ```
 
 This will install Pulumi and exit without performing any other operations.
@@ -181,7 +182,7 @@ We can see that `pet-name` is an output. To get the value of this output in the
 action, we would use code similar to the following:
 
 ```yaml
-- uses: pulumi/actions@v4
+- uses: pulumi/actions@v5
   id: pulumi
   env:
     PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
@@ -229,6 +230,12 @@ As of `v3.18`, we are intending to move to a monthly cadence for minor releases.
 Minor releases will be published around the beginning of the month. We may cut a
 patch release instead, if the changes are small enough not to warrant a minor
 release. We will also cut patch releases periodically as needed to address bugs.
+
+## Migrating from v4
+
+v5 of the Pulumi Action updates the NodeJS runtime from Node 16 to Node 20.
+Users of GitHub Enterprise will have to upgrade to v3.6 or newer. All other
+users are unaffected.
 
 ## Migrating from v3
 

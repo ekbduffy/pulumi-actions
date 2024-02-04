@@ -33,7 +33,7 @@ export function makeConfig() {
   return {
     command: getUnionInput('command', {
       required: true,
-      alternatives: ['up', 'update', 'refresh', 'destroy', 'preview'] as const,
+      alternatives: ['up', 'update', 'refresh', 'destroy', 'preview', 'output'] as const,
     }),
     stackName: getInput('stack-name', { required: true }),
     pulumiVersion: getInput('pulumi-version', { required: true }),
@@ -65,7 +65,7 @@ export function makeConfig() {
       policyPackConfigs: parseSemicolorToArray(
         getMultilineInput('policyPackConfigs'),
       ),
-      userAgent: 'pulumi/actions@v3',
+      userAgent: 'pulumi/actions@v5',
       color: getUnionInput('color', {
         alternatives: ['always', 'never', 'raw', 'auto'] as const,
       }),
